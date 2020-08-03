@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing Plans | Zoom</title>
+    <script>
+      function buyNow() {
+        if (window.confirm('Do You Want to Buy the Premium Plan for Zoom?')) {
+          alert('Thank You!');
+        }
+      }
+    </script>
+    <script
+      defer
+      src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"
+    ></script>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="/script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+        font-family: Lato, Helvetica, Arial, sans-serif;
+        margin: 15px;
+      }
+
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #2d8cff;
+        cursor: pointer;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      h1 {
+        font-size: 2.75em;
+      }
+
+      h1,
+      h2 {
+        color: #2d8cff;
+      }
+
+      hr {
+        border-top: 1px dashed #2d8cff;
+      }
+
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .blue {
+        color: #2d8cff;
+      }
+
+      .choose {
+        font-weight: bold;
+      }
+
+      .columns {
+        float: left;
+        width: 100%;
+        padding: 8px;
+        border-radius: 50px;
+      }
+
+      .price {
+        list-style-type: none;
+        border: 1px solid #eee;
+        margin: 0;
+        padding: 0;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+        border-radius: 5px;
+      }
+
+      .price:hover {
+        box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .price .header {
+        background-color: #2d8cff;
+        color: white;
+        font-size: 25px;
+      }
+
+      .price li {
+        border-bottom: 1px solid #eee;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .price .grey {
+        background-color: #eee;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .button {
+        background-color: #2d8cff;
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        border-radius: 5px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .columns {
+          width: 100%;
+        }
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Zoom Pricing Plans</h1>
+      <p class="choose">Choose A Plan That Best Suits Your Needs:</p>
+      <div class="cards">
+        <div class="columns">
+          <ul class="price">
+            <li class="header">Free Plan</li>
+            <li class="grey">Free Forever</li>
+            <li>SSL Encryption</li>
+            <li>Unlimited Meetings</li>
+            <li>50 Users Limit Per Meeting</li>
+            <li>Basic Support</li>
+            <li class="grey">
+              <a href="/" class="button" target="_blank">Start A New Meeting</a>
+            </li>
+          </ul>
+        </div>
+        <div class="columns">
+          <ul class="price">
+            <li class="header">Premium Plan</li>
+            <li class="grey">$ 14.99 / month</li>
+            <li>SSL Encryption</li>
+            <li>Unlimited Meetings</li>
+            <li>Unlimited Users Per Meeting</li>
+            <li>Priority Support</li>
+            <li class="grey">
+              <a href="/" class="button" target="_blank" onclick="buyNow()"
+                >Buy Now</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Conferencing Platform | Zoom</title>
+    <script
+      defer
+      src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"
+    ></script>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="/script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+        font-family: Lato, Helvetica, Arial, sans-serif;
+        margin: 15px;
+      }
+
+      a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #2d8cff;
+        cursor: pointer;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      h1 {
+        font-size: 2.75em;
+      }
+
+      h1,
+      h2 {
+        color: #2d8cff;
+      }
+
+      #video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 300px);
+        grid-auto-rows: 300px;
+        grid-gap: 20px;
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      hr {
+        border-top: 1px dashed #2d8cff;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      h3 a {
+        padding: 4px;
+        border: 1px solid #2d8cff;
+        border-radius: 5px;
+        text-decoration: none;
+      }
+
+      h3 a:hover {
+        text-decoration: none;
+        background-color: #2d8cff;
+        color: #fff;
+      }
+
+      .main {
+        margin: 0 50px;
+      }
+
+      .about {
+        margin: 0 25px;
+      }
+
+      #room-link {
+        display: inline-block;
+      }
+
+      i {
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <h1>Zoom</h1>
+      <div id="video-grid"></div>
+      <br />
+      <h3><a href="/" target="_blank">Click Here To Start A New Meeting</a></h3>
+      <hr />
+    </div>
+    <div class="about">
+      <h2>About:</h2>
+      <ol>
+        <li>
+          <span id="room-link">
+            <b>
+              Share this link with people that you want to join your meeting (no
+              login or signup required):
+            </b>
+          </span>
+        </li>
+        <li>
+          You can get out of this meeting simply by closing this browser tab.
+        </li>
+        <li>
+          <b>Note: </b>The maximum number of users at the meeting on the
+          <b>Free Plan</b>
+          is 50. To be able to host
+          <b>unlimited meetings with more than 50 users,</b> please
+          <a href="/pricing" target="_blank">upgrade to the Premium Plan.</a>
+        </li>
+        <li>
+          If you encounter any problems while using Zoom, feel free to
+          <a href="mailto:emaily.help@gmail.com">Contact Us.</a>
+        </li>
+      </ol>
+    </div>
+  </body>
+  <script>
+    const ROOM_ID = '<%= roomId %>';
+    const roomLink = document.getElementById('room-link');
+    const link = document.createElement('span');
+    link.innerHTML = `<i>https://minimalistic-zoom.herokuapp.com/room/${ROOM_ID}</i>`;
+    roomLink.append(link);
+  </script>
+</html>
